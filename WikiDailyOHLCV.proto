@@ -1,0 +1,42 @@
+﻿syntax = "proto3";
+
+package d1100.data;
+
+// Represents a single observation of EOD dailyOHLCV
+// with both adjusted and unadjusted values
+// in particular that found at
+// https://www.quandl.com/databases/WIKIP
+// 
+// data comes like this from the CSV
+// 0 ticker A
+// 1 date 1999-11-18
+// 2 open 45.5
+// 3 high 50.0
+// 4 low 40.0
+// 5 close 44.0
+// 6 volume 44739900.0
+// 7 ex-dividend 0.0
+// 8 split_ratio 1.0
+// 9 adj_open 31.041951216877
+// 10 adj_high 34.112034304261
+// 11 adj_low 27.289627443409
+// 12 adj_close 30.018590187749
+// 13 adj_volume 44739900.0
+//
+// which I leave intact except for converting the date to unix timestamp
+message WikiDailyOHLCV {
+	string ticker = 1;
+	int64 ts = 2;
+	double open = 3;
+	double high = 4;
+	double low = 5;
+	double close = 6;
+	double volume = 7;
+	double exDividend = 8;
+	double splitRatio = 9;
+	double adjOpen = 10;
+    double adjHigh = 11;
+	double adjLow = 12;
+	double adjClose = 13;
+	double adjVolume = 14;
+}
